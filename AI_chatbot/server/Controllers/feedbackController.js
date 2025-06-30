@@ -11,13 +11,15 @@ const sendFeedback = async (req, res) => {
       contents: userInput,
     });
 
+    let responseText = sanitizeResponse(response.text);
+
     const feedbackData = await feedback.create({
       userId: req.user.id,
       user_input: userInput,
-      feedback: response.text,
+      feedback: responseText,
     });
 
-    res.status(200).json({ feedback: feedbackData });
+    res.status(200).json({ user_input: userInput,feedback: responseText });
   } catch (error) {
     console.error("Error sending feedback:", error);
     res.status(500).json({ error: "Internal server error" });
@@ -39,4 +41,11 @@ const getFeedbackHistory = async (req, res) => {
   }
 };
 
+
+function sanitizeResponse(text) {
+  return text
+    .replace(/[#*_`~>-]+/g, "")
+    .replace(/\n{2,}/g, "\n")
+    .trim();
+}
 export { sendFeedback, getFeedbackHistory };

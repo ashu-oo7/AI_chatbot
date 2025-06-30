@@ -1,0 +1,43 @@
+/* Page-level styling */
+
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Paper (login box) */
+.login-paper {
+  padding: 30px;
+  width: 320px;
+  border-radius: 10px;
+}
+
+/* Center avatar and heading */
+.login-header {
+  text-align: center;
+  margin-bottom: 20px;
+  
+}
+
+/* Avatar */
+.login-avatar {
+  background-color: #119c67;
+  margin: 0 auto;
+}
+
+/* Login button */
+.login-btn {
+  margin-top: 20px;
+}
+
+/* Forgot password and register links */
+.login-link {
+  margin-top: 16px;
+  text-align: center;
+}
